@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import buildspaceLogo from '../assets/buildspace-logo.png';
 import React, { useState } from 'react';
 
 const Home = () => {
@@ -14,8 +13,6 @@ const Home = () => {
 
   const [apiOutput, setApiOutput] = useState('');
   const [isGenerating, setIsGenerating] = useState(false);
-  const [outputTitle, setOutputTitle] = useState('');
-  const [outputBody, setOutputBody] = useState('');
 
   const callGenerateEndpoint = async () => {
     setIsGenerating(true);
@@ -40,7 +37,7 @@ const Home = () => {
   return (
     <div className="root">
       <Head>
-        <title>GPT-3 Writer | buildspace</title>
+        <title>GPT-3 | recipe builder</title>
       </Head>
       <div className="container">
         <div className="header">
@@ -82,18 +79,6 @@ const Home = () => {
           </div>
           )}
         </div>
-      </div>
-      <div className="badge-container grow">
-        <a
-          href="https://buildspace.so/builds/ai-writer"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <div className="badge">
-            <Image src={buildspaceLogo} alt="buildspace logo" />
-            <p>build with buildspace</p>
-          </div>
-        </a>
       </div>
     </div>
   );

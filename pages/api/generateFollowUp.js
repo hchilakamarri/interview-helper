@@ -19,10 +19,8 @@ Answer>>>
 `;
 
 const generateFollowUp = async (req, res) => {
-  console.log('Attempting API Call')
   var allMessages = req.body.messages;
   allMessages.push({role: 'assistant', content: followUpHelper})
-  console.log(Array.isArray(req.body.messages));
 
   try {
     const baseCompletion = await openai.createChatCompletion({
@@ -30,8 +28,6 @@ const generateFollowUp = async (req, res) => {
       messages: allMessages,
       temperature: 0.8,
     });
-
-    console.log(baseCompletion);
 
   const basePromptOutput = baseCompletion.data.choices[0].message.content;
   console.log(basePromptOutput);

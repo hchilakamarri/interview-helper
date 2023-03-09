@@ -32,7 +32,7 @@ body {
     padding: 50px;
     position: relative;
     width: auto;
-    gap: 64px;
+    gap: 16px;
 }
 
 .header {    
@@ -81,7 +81,7 @@ body {
     display: flex;
     flex: 0 0 auto;
     flex-flow: column nowrap;
-    gap: 16px;
+    gap: 12px;
     height: min-content;
     padding: 0px;
     width: min-content;
@@ -102,7 +102,7 @@ body {
     flex: 0 0 auto;
     flex-flow: column nowrap;
     gap: 10px;
-    height: 25px;
+    height: 10px;
     overflow: hidden;
     padding: 20px;
     position: relative;

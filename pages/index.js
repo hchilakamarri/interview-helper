@@ -5,21 +5,27 @@ const Home = () => {
 
   const [userInputRole, setUserInputRole] = useState('');
   const [userInputCompany, setUserInputCompany] = useState('');
+  const [userInputJobDescription, setUserInputJobDescription] = useState('');
   const [userInputResponse, setUserInputResponse] = useState('');
-  // const [messages, setMessages] = useState([]);
   const messages = [];
   const [isFirstMessage, setIsFirstMessage] = useState(true);
+  const [questionNumber, setQuestionNumber] = useState(1);
 
   const [formData, setFormData] = useState(null);
+
+  const onUserChangedCompany = (event) => {
+    console.log(event.target.value);
+    setUserInputCompany(event.target.value);
+  };
 
   const onUserChangedRole = (event) => {
     console.log(event.target.value);
     setUserInputRole(event.target.value);
   };
 
-  const onUserChangedCompany = (event) => {
+  const onUserChangedJobDescription = (event) => {
     console.log(event.target.value);
-    setUserInputCompany(event.target.value);
+    setUserInputJobDescription(event.target.value);
   };
 
   const onUserChangedAnswer = (event) => {
@@ -45,7 +51,7 @@ const Home = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ userRole: userInputRole, userCompany: userInputCompany}),
+      body: JSON.stringify({ userRole: userInputRole, userCompany: userInputCompany, jobDescription: userInputJobDescription}),
     });
 
     const { output } = await response.json();
@@ -55,6 +61,7 @@ const Home = () => {
     var outputString = `${output}`;
 
     // Show Response
+    setQuestionNumber(1);
     setApiOutputQuestion(outputString);
     setIsGenerating(false);
   }
@@ -125,27 +132,25 @@ const Home = () => {
     setIsProvidingFeedback(false);
   }
 
-  function initialPrompt(company, role){
+  function initialPrompt(company, role, jobDescription){
     return (
       `Prompt>>> You are an interviewer at Microsoft and you are interviewing someone for a Software Engineer role. Ask the interviewee one question related to the role. The question can be why the compnay, why the role, behavioral, or technical.
       Answer>>> Can you give me an example of a time when you had to collaborate with a team to solve a problem, and how did you contribute to the team's success?
       ---
-      Prompt>>> You are an interviewer at ${company} and you are interviewing someone for a ${role} role. Ask the interviewee one question related to the role. The question can be why the compnay, why the role, behavioral, or technical.
+      Prompt>>> You are an interviewer at ${company} and you are interviewing someone for a ${role} role. Job Description: ${jobDescription}. Ask the interviewee one question related to the role. The question can be why the compnay, why the role, behavioral, or technical.
       Answer>>>`
       );
   }
 
   function updateMessages() {
     if(isFirstMessage){
-      messages.push({'role': 'system', 'content':`${initialPrompt(userInputCompany, userInputRole)}`});
+      messages.push({'role': 'system', 'content':`${initialPrompt(userInputCompany, userInputRole, userInputJobDescription)}`});
       setIsFirstMessage(false);
     }
     else {
       messages.push({'role': 'assistant', 'content': apiOutputQuestion});
     }
     messages.push({'role': 'user', 'content': userInputResponse});
-    console.log('messages in fxn updateMessages');
-    console.log(messages);
   }
 
   const callGenerateFollowUpEndpoint = async () => {
@@ -173,6 +178,7 @@ const Home = () => {
     // Show Response
     setUserInputResponse('');
     setApiOutputFeedback('');
+    setQuestionNumber(questionNumber + 1);
     setApiOutputQuestion(outputString);
     setIsGenerating(false);
   }
@@ -196,14 +202,23 @@ const Home = () => {
           <input 
             className="prompt-box"
             placeholder="Company..." 
+            maxLength="2048"
             value={userInputCompany}
             onChange={onUserChangedCompany}
             />
           <input 
             className="prompt-box"
             placeholder="Role..." 
+            maxLength="2048"
             value={userInputRole}
             onChange={onUserChangedRole}
+            />
+            <input 
+            className="prompt-box"
+            placeholder="(Optional) Job Description..." 
+            maxLength="2048"
+            value={userInputJobDescription}
+            onChange={onUserChangedJobDescription}
             />
           <div className="prompt-buttons">
             <a 
@@ -211,7 +226,7 @@ const Home = () => {
             onClick={callGenerateQuestionEndpoint}
             >
               <div className="generate">
-              {isGenerating ? <span className="loader"></span> : <p>New Question</p>}
+              {isGenerating ? <span className="loader"></span> : <p>New Interview</p>}
               </div>
             </a>
           </div>
@@ -219,6 +234,7 @@ const Home = () => {
         {apiOutputQuestion && (
           <div className="output">
             <div className="output-content">
+              <h1><b>Question #{questionNumber}</b></h1>
               <h2>{apiOutputQuestion}</h2>
             </div>
           </div>

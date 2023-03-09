@@ -10,7 +10,7 @@ body {
     display: flex;
     place-content: center flex-start;
     align-items: center;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(41, 41, 41);
     flex-flow: column nowrap;
     gap: 10px;
     height: 100vh;
@@ -63,6 +63,7 @@ body {
     font-style: normal;
     font-weight: 400;
     line-height: 1.4em;
+    text-align: center;
     color: rgba(255, 255, 255, 0.75);
 }
 
@@ -101,7 +102,7 @@ body {
     flex: 0 0 auto;
     flex-flow: column nowrap;
     gap: 10px;
-    height: 150px;
+    height: 25px;
     overflow: hidden;
     padding: 20px;
     position: relative;
@@ -129,7 +130,6 @@ textarea {
 .prompt-box:focus {
     border-color:rgba(255, 255, 255, 0.75)
 }
-
 
 .prompt-buttons {
     display: flex;
@@ -188,10 +188,9 @@ textarea {
     gap: 10px;
     height: min-content;
     overflow: hidden;
-    padding: 16px 24px;
+    padding: 16px 26px;
     position: relative;
     text-decoration: none;
-    width: min-content;
     will-change: transform;
     cursor: pointer;
 }
@@ -306,7 +305,7 @@ textarea {
 
 .output-header h3 {
     font-family: "Manrope", serif;
-    font-size: 28px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 800;
     letter-spacing: 0px;
@@ -328,10 +327,158 @@ textarea {
     transform: none;
 }
 
+.output-content h1 {
+    font-family: "Manrope", serif;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 800;
+    letter-spacing: 0px;
+    line-height: 1.4em;
+    text-align: center;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: none;
+    margin: 0;
+}
+
+.output-content h2 {
+    font-family: "Manrope", serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 200;
+    letter-spacing: 0px;
+    line-height: 1.4em;
+    text-align: left;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: none;
+    margin: 0;
+}
+
+.output-content h3 {
+    font-family: "Manrope", serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 200;
+    letter-spacing: 0px;
+    line-height: 1.4em;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    text-transform: none;
+    margin: 1;
+}
+
 .output-content p {
     text-align: center;
     white-space: pre-line;
     color: rgba(255, 255, 255, 0.5);
+}
+
+.prompt-container h4 {
+    font-family: "Manrope", serif;
+    font-size: 0px;
+    font-style: normal;
+    font-weight: 200;
+    letter-spacing: 0px;
+    line-height: 1.4em;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    text-transform: none;
+    margin: 1;
+}
+
+.file-input {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.upload-box {
+    display: flex;
+    place-content: center;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 0 0 auto;
+    flex-flow: row nowrap;
+    gap: 12px;
+    height: min-content;
+    overflow: hidden;
+    padding: 0px;
+    position: relative;
+    width: 100%;
+}
+
+.upload-box h3{
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.4em;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.transcribe-button {
+    place-content: flex-start;
+    align-items: flex-start;
+    background-color: rgba(82, 82, 82, 0.75);
+    border-radius: 100px;
+    display: flex;
+    flex: 0 0 auto;
+    flex-flow: column nowrap;
+    gap: 10px;
+    height: min-content;
+    overflow: hidden;
+    padding: 16px 26px;
+    position: relative;
+    text-decoration: none;
+    will-change: transform;
+    cursor: pointer;
+}
+
+.prompt-container-2 {
+    place-content: flex-end center;
+    align-items: center;
+    display: flex;
+    flex: 0 0 auto;
+    flex-flow: column nowrap;
+    gap: 16px;
+    height: max-content;
+    width: min-content;
+    padding: 0px;
+}
+
+.prompt-box-2 {
+    border-bottom-width: 1px;
+    border-color: rgba(255, 255, 255, 0.1);
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 1px;
+    place-content: flex-start;
+    align-items: flex-start;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    display: flex;
+    flex: 0 0 auto;
+    flex-flow: column nowrap;
+    gap: 10px;
+    height: 200px;
+    overflow: hidden;
+    padding: 20px;
+    position: relative;
+    width: 610px;
+    max-width: 1200px;
+    will-change: transform;
+    overflow: auto;
+    outline: none;
+    resize: none;
+    font-size: 16px;
+    font-style: normal;
+    letter-spacing: 0px;
+    line-height: 1.6em;
+    text-align: start;
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+    text-transform: none;
 }
 
 @media (min-width: 810px) and (max-width: 1199px) {

@@ -1,4 +1,4 @@
- ### Interview Prep Guide using ChatGPT and Whisper
+# Interview Prep Guide using ChatGPT and Whisper
 Interview Assistant generates interview questions so you can practice at your own pace!
 
 Video Demo: 
@@ -13,14 +13,14 @@ Video Demo:
 ## Build
 This repo uses OpenAI's chat completion (gpt3.5-turbo) and voice transcription APIs (whisper-1).
 
-# OpenAI API
+### OpenAI API
 1. The following are generated using gpt3.5-turbo
     a. Initial Questions
     b. Feedback
     c. Follow-up questions
 2. Recordings are transcribed with whisper-1
 
-# ChatGPT
+### ChatGPT
 I used ChatGPT for several use cases when building this project:
 1. Debugging code - ChatGPT was able to provide very specific answers if I provided the full context of code and any exceptions that were thrown. When the problem was more nebulous, ChatGPT explained concepts or code edits (i.e. console.error(err)) when necessary so I could better debug code myself.
 2. Project Feedback - I explained the prompt I was given for this project and my soluiton. ChatGPT provided feedback on my solution.

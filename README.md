@@ -1,5 +1,7 @@
 # Interview Prep Guide using ChatGPT and Whisper
-Interview Assistant generates interview questions so you can practice at your own pace!
+### Interview Assistant generates interview questions so you can practice at your own pace!
+
+I created an interview assistant to allow candidates to practice and prepare independently without any pressure. Using this tool, I've prepared better responses and feel more confident in real interviews or just mock interviewing. Given the recent tech layoffs, interviewing has become more hard and stressful. Hopefully this assistant will help you feel more confident so you can crush your next interview, good luck!
 
 [Video Demo](https://www.loom.com/share/8a47a9cb29aa49729f3399b3e65d363d)
 

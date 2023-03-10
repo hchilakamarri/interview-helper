@@ -1,7 +1,7 @@
 # Interview Prep Guide using ChatGPT and Whisper
 Interview Assistant generates interview questions so you can practice at your own pace!
 
-Video Demo: 
+[Video Demo](https://www.loom.com/share/8a47a9cb29aa49729f3399b3e65d363d)
 
 ## Instructions
 1. Add the company and role you're applying to (optionally, add the job description)
